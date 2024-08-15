@@ -1,19 +1,19 @@
 //
-//  ContentView.swift
-//  receiptor_copilot_latest
+//  AppOnboardingView.swift
+//  receiptor_copilot
 //
 //  Created by Omkar Malpure on 15/08/24.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+
+struct AppOnboardingView: View {
     @State private var animatedText = ""
     @State private var currentTextIndex = 0
     let textOptions = ["Google", "Gmail"]
     
     var body: some View {
-        NavigationView{
         ZStack {
             Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
             
@@ -24,7 +24,7 @@ struct ContentView: View {
                     .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
                     .padding(.top, 25)
                 
-                
+//                Spacer()
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
@@ -41,7 +41,7 @@ struct ContentView: View {
                             .font(.system(size: 38))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
-                        
+                            
                     }
                 }
                 
@@ -52,25 +52,28 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination:NotificationPermissionView()) {
+                Button(action: {
+                    // Action for "Get started" button
+                }) {
                     Text("Get started")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color(UIColor(red: 10/255, green: 90/255, blue: 190/255, alpha: 1)))
-                        .cornerRadius(30)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
                 
-                NavigationLink(destination:NotificationPermissionView()) {
+                Button(action: {
+                    // Action for "I already have an account" button
+                }) {
                     Text("I already have an account")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
+                        .fontWeight(.medium)
+                        .foregroundColor(.blue)
                 }
             }
             .padding()
         }
-    }
         .onAppear {
             animateText()
         }
@@ -129,9 +132,6 @@ struct ContentView: View {
 
 
 
-
-
-
 #Preview {
-    ContentView()
+    AppOnboardingView()
 }

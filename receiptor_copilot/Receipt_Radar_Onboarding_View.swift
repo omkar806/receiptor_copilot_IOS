@@ -65,6 +65,7 @@ struct Receipt_Radar_Onboarding_View: View {
                         .onTapGesture {
                             goToNextPage()
                         }
+                        
                 }
                 
                 if currentPage == totalPages - 1 {
