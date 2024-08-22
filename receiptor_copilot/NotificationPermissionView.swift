@@ -63,11 +63,16 @@ struct NotificationPermissionView: View {
                     SafariView(url: settingsUrl)
                 }
             }
-            
-            Button("Maybe later") {
-                // Handle "Maybe later" action
-            }.fontWeight(.bold)
-            .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
+            NavigationLink(destination:SignUpSignInView()){
+                Text("Maybe later")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
+                
+            }
+//            Button("Maybe later") {
+//                // Handle "Maybe later" action
+//            }.fontWeight(.bold)
+//            .foregroundColor(Color(UIColor(red: 0/255, green: 51/255, blue: 100/255, alpha: 1)))
         }.navigationBarBackButtonHidden()
         .padding()
     }

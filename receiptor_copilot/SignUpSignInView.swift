@@ -28,6 +28,9 @@ struct SignUpSignInView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "applelogo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 30)
                             Text("Continue with Apple")
                         }
                         .frame(maxWidth: .infinity)
@@ -43,9 +46,13 @@ struct SignUpSignInView: View {
                     
                     Button(action: {}) {
                         HStack {
-                            Image("google_logo") // You'll need to add this image to your assets
+                            Image(.googleLogo)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)// You'll need to add this image to your assets
                             Text("Continue with Google")
                         }
+                        
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.white)
@@ -59,7 +66,10 @@ struct SignUpSignInView: View {
                     
                     Button(action: {}) {
                         HStack {
-                            Image("facebook_logo") // You'll need to add this image to your assets
+                            Image(.facebookLogo)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width:35,height: 30)// You'll need to add this image to your assets
                             Text("Continue with Facebook")
                         }
                         .frame(maxWidth: .infinity)
