@@ -1,14 +1,13 @@
 //
-//  MyDataView.swift
-//  receiptor_copilot_latest
+//  RewardView.swift
+//  receiptor
 //
-//  Created by Omkar Malpure on 15/08/24.
+//  Created by Omkar Malpure on 08/09/24.
 //
 
 import SwiftUI
 
-struct MyDataView: View {
-    @State private var isReceiptRadarPresented = false
+struct RewardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
@@ -28,9 +27,9 @@ struct MyDataView: View {
                     
                         ConnectionItem(icon: ".howitowrksView1", title: "Receipt Radar", subtitle: "Turn your receipts into rewards", points: "850")
                         .onTapGesture {
-                            isReceiptRadarPresented = true
+//                            isReceiptRadarPresented = true
                         }
-//                    
+//
                     ConnectionItem(icon: "safari", title: "Supercharge Safari", subtitle: "Earn rewards from browsing", points: "850")
                     ConnectionItem(icon: "google.logo", title: "My Google data", subtitle: "Discover what Google tracks", points: nil)
                 }
@@ -39,45 +38,15 @@ struct MyDataView: View {
             
             .navigationBarHidden(true)
             .background(Color(UIColor.systemBackground))
-            .fullScreenCover(isPresented: $isReceiptRadarPresented) {
-                Receipt_Radar_Onboarding_View()
-            }
+//            .fullScreenCover(isPresented: $isReceiptRadarPresented) {
+//                Receipt_Radar_Onboarding_View()
+//            }
             
             TabBar()
         }.navigationBarBackButtonHidden(true)
     }
 }
 
-struct TabBar: View {
-    var body: some View {
-        HStack {
-            TabBarItem(icon: "house", text: "Home")
-            TabBarItem(icon: "chart.bar", text: "My Data", isSelected: true)
-            TabBarItem(icon: "gift", text: "Rewards")
-        }
-        .padding()
-        .background(Color(UIColor.secondarySystemBackground))
-    }
-}
-
-struct TabBarItem: View {
-    let icon: String
-    let text: String
-    var isSelected: Bool = false
-    
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .foregroundColor(isSelected ? .blue : .gray)
-            Text(text)
-                .font(.caption)
-                .foregroundColor(isSelected ? .blue : .gray)
-        }
-    }
-}
-
-
-
 #Preview {
-    MyDataView()
+    RewardView()
 }
