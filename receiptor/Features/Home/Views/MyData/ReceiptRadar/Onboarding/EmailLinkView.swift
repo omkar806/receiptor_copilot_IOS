@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-
+import Supabase
 
 
 struct EmailLinkView: View {
     @State private var navigationPath = NavigationPath()
-
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationView {
 
@@ -19,7 +20,7 @@ struct EmailLinkView: View {
                 LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.7), Color.blue.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all)
                 
-                
+                   
                 VStack(spacing: 20) {
                     
                     CircleIcon()
@@ -34,31 +35,7 @@ struct EmailLinkView: View {
                         
                     }
                     VStack{
-                        Button{
-                            
-                            //action
-                            signInWithGoogleIOS {
-                                access_token , refresh_token , email  in
-                                let receiptor_id = UserDefaults.standard.string(forKey: "user_id") ?? ""
-                                print(receiptor_id)
-                                if receiptor_id != ""{
-                                    print("inside task")
-                                    Task{
-                                        print("inside task")
-                                     
-                                           let  insert_ = try await SupabaseManager.shared.client.from("receipt_radar_tokens").insert(insert_receipt_token(access_token: access_token ?? "null", receiptor_id: receiptor_id, email:email ?? "null" , refresh_token: refresh_token ?? "null"))
-                                                .execute()
-                                            print(insert_.status)
-                                            print("Completed inserting the data")
-                                        
-                                        
-                                    }
-                                }
-                            }
-//
-                            
-                        }
-                    label:{
+                        NavigationLink(destination: ConnectingGmail()){
                             HStack {
                                 Image(.googleLogo)
                                     .resizable()
@@ -78,7 +55,7 @@ struct EmailLinkView: View {
                         }
                         
                         Button{
-                            
+                            showAlert = true
                         }label: {
                             HStack {
                                 Image(.microsoftOutlookIcon)
@@ -100,7 +77,7 @@ struct EmailLinkView: View {
                         
                         
                         Button{
-                            
+                            showAlert = true
                         }label: {
                             HStack {
                                 Image(.yahooSvgrepoCom)
@@ -127,6 +104,8 @@ struct EmailLinkView: View {
                         .foregroundColor(.blue)
                         .frame(maxHeight: .infinity,alignment: .bottom)
                     
+                }.alert(isPresented: $showAlert) {
+                    Alert(title: Text("Coming Soon!"), message: Text("This feature will be available shortly."), dismissButton: .default(Text("Got it!")))
                 }
             }
             

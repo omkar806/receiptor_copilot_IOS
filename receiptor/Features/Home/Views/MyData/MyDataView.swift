@@ -42,7 +42,7 @@ struct MyDataView: View {
             .background(Color(UIColor.systemBackground))
             .fullScreenCover(isPresented: $isReceiptRadarPresented) {
 //                navigationPath.append("receipt_radar")
-                HowItWorksView()
+                Receipt_Radar_Onboarding_View()
             }
             
             TabBar()

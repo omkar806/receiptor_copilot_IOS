@@ -24,7 +24,7 @@ struct SignUpSignInView: View {
     var body: some View {
         
         
-        NavigationView {
+        NavigationStack {
             ZStack {
                 //            Color.white.edgesIgnoringSafeArea(.all)
                 

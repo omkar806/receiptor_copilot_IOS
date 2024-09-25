@@ -12,11 +12,12 @@ struct receiptorApp: App {
     var body: some Scene {
 
         WindowGroup {
-//            ContentView()
-            Receipt_Radar_Onboarding_View()
+            ConnectingGmail()
+//            Receipt_Radar_Onboarding_View()
 //            ConnectingGmail()
 //            EmailLinkView()
 //            HomeScreen()
+//            ContentView()
                 .preferredColorScheme(.light)
 //            SignUpSignInView()
                 .onOpenURL { url in

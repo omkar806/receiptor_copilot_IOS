@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct insert_receipt_token : Encodable {
+struct insert_receipt_token_v1 : Encodable {
     
     let access_token : String
     let receiptor_id : String
